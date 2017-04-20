@@ -1,0 +1,28 @@
+doctype html
+html lang="en"
+  head
+    meta charset="utf-8"
+    meta http-equiv="X-UA-Compatible" content="IE=edge"
+    meta name="viewport" content="width=device-width, initial-scale=1"
+    meta name="description" content="PFA / SDW Elixir, Rails, React. Software consulting."
+    meta name="author" content="Scotty Weeks"
+    title PFA : NYC : Elixir, Phoenix, Ruby, Rails, Javascript, React, Redux
+    link rel="stylesheet" href="#{static_path @conn, "/css/app.css"}"
+  body
+    nav
+      site PFA / SDW
+      ul
+        li
+          a href="" About
+        li
+          a href="" Projects
+        li
+          a href="" Services
+        li
+          a href="" How does it work?
+        li
+          a href="" Contact
+
+    = render @view_module, @view_template, assigns
+
+    script src="#{static_path @conn, "/js/app.js"}"

@@ -1,0 +1,292 @@
+/* This file is for your main application css. */
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,800');
+@import "mixins";
+
+$bold-weight: 800;
+$body-color: #4A4A4A;
+$light-grey: #9B9B9B;
+$extra-light-grey: #CFCFCF;
+$body-background: #FDFDFD;
+$highlight-color-1: #D0011B;
+$highlight-color-2: #50E3C2;
+$highlight-color-3: #BD0FE1;
+$font-family: "Open Sans", Helvetica, Arial, sans-serif;
+$button-color: $highlight-color-2;
+
+
+$z-level-0: 0;
+$z-level-top: 10;
+
+body {
+  font-family: $font-family;
+  color: $body-color;
+  background: $body-background;
+  margin: 0;
+  padding: 0;
+}
+
+nav {
+  margin: 1em;
+  font-weight: $bold-weight;
+  ul {
+    display: inline-block;
+    list-style: none;
+    font-weight: normal;
+    margin: 0 0 0 1em;
+    padding: 0;
+  }
+  li {
+    padding-right: 1em;
+    display: inline-block;
+    text-transform: lowercase;
+  }
+  a:hover {
+    color: $highlight-color-2;
+  }
+}
+
+#content {
+  margin: 5rem 2rem 2rem 6rem;
+}
+
+h1, h2 {
+  font-weight: $bold-weight;
+  line-height: 1.5;
+  margin: 0;
+}
+
+h1 {
+  text-transform: uppercase;
+  font-size: 4.5rem;
+}
+
+h2 {
+  margin-top: 5rem;
+  font-size: 2.5rem;
+}
+
+span {
+  display: inline-block;
+}
+
+.problem-type {
+  ul {
+    display: none;
+    position: absolute;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    z-index: $z-level-top;
+  }
+  li {
+    @include opacity(0.5);
+    cursor: pointer;
+    &.selected, &:hover {
+      @include opacity(0.75);
+    }
+    &.hidden {
+      display: none;
+    }
+  }
+  input {
+    border: 0;
+    outline: 0;
+    font-family: $font-family;
+    font-weight: $bold-weight;
+    font-size: 2.5rem;
+    background: url(/images/triangle.png) right center no-repeat;
+    background-color: $body-background;
+    color: $body-color;
+    border-bottom: 2px solid $light-grey;
+    width: 16em;
+    &:focus {
+      color: $body-color;
+    }
+    &:hover {
+      cursor: pointer;
+      display: block;
+    }
+  }
+  &.active ul {
+    display: block;
+  }
+}
+
+
+#response {
+  &:hover ul {
+    display: block;
+  }
+  &.matched {
+    ul {
+      display: none;
+    }
+    input {
+      background: none;
+      border-bottom: 2px solid $body-background;
+    }
+  }
+}
+
+.next {
+  margin-top: 5rem;
+  button {
+    padding: 0.5rem 1rem;
+    font-size: 3rem;
+    font-family: $font-family;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: $body-background;
+    background: $button-color;
+    border: 0;
+    outline: 0;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+}
+
+.hidden {
+  display: none;
+}
+
+.invisible {
+  @include opacity(0);
+  @include transition(opacity 0.25s ease);
+  &.first {
+    @include transition(opacity 1s ease);
+  }
+}
+
+.fade-in {
+  @include opacity(1);
+  @include transition(opacity 1s ease);
+}
+
+.hi-0 {
+  color: $highlight-color-1;
+}
+.hi-1 {
+  color: $highlight-color-2;
+}
+.hi-2 {
+  color: $highlight-color-3;
+}
+
+/** touch styles **/
+
+.is-touch {
+  .touch-placeholder {
+    color: $extra-light-grey;
+  }
+  .problem-type {
+    ul {
+      display: block;
+    }
+  }
+
+  #response {
+    &:hover ul {
+      display: block;
+    }
+    &.matched {
+      ul {
+        display: block;
+      }
+      input {
+        background: none;
+        border-bottom: 2px solid $body-background;
+      }
+    }
+  }
+
+  .next {
+    margin-top: 13rem;
+  }
+}
+
+/** Media queries **/
+
+@include mq("desktop", $type: "max") {
+  #content {
+    margin: 3rem 1rem 1rem 4rem;
+  }
+
+  h1 {
+    font-size: 3.5rem;
+  }
+  h2, .problem-type input {
+    font-size: 1.5rem;
+  }
+  h2 {
+    margin-top: 1.5rem;
+  }
+  .next{
+    margin-top: 3rem;
+    button {
+      font-size: 2rem;
+    }
+  }
+}
+
+@include mq("tablet-wide", $type: "max") {
+  #content {
+    margin: 2rem 0.5rem 0.5rem 3rem;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+  }
+  h2, .problem-type input {
+    font-size: 1.25rem;
+  }
+  h2 {
+    margin-top: 1.25rem;
+  }
+  .next{
+    margin-top: 2rem;
+    button {
+      font-size: 1.5rem;
+    }
+  }
+}
+
+@include mq("tablet-small", $type: "max") {
+  nav {
+    font-size: 0.65rem;
+    site {
+      display: none;
+    }
+    li {
+      padding-right: 0.25em;
+      &:after {
+        font-weight: 800;
+        content: " / ";
+      }
+      &:last-child {
+        &:after {
+          content: "";
+        }
+      }
+    }
+  }
+  #content {
+    margin: 1rem 0.5rem 0.5rem 1.5rem;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+  h1:nth-child(2), h1:nth-child(3) {
+    font-size: 1rem;
+  }
+
+  h2, .problem-type input {
+    font-size: 1rem;
+  }
+
+  .next{
+    button {
+      font-size: 1.15rem;
+    }
+  }
+}

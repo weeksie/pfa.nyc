@@ -1,0 +1,27 @@
+#content
+  #greeting
+    h1 Hi there.
+    h1.invisible
+      span Do you need
+    h1.invisible
+      span.consultant-type(data-consultant-type="elixir developer,javascript developer,ruby developer,technical consultant")
+        span a
+        span &nbsp;
+        span.hi-0 technical consultant
+        span ?
+
+
+  #response
+    h2.invisible YES! We have
+      span &nbsp;
+      span.problem-type
+        input type="text" placeholder="a . . ."
+        ul#problems
+          li data-value="javascript-project" a javascript project
+          li data-value="elixir-project" an elixir project
+          li data-value="rails-project" a rails project
+          li data-value="project-lead" a project in need of leadership
+          li data-value="project-rescue" a project that just needs help!
+
+    .next.invisible
+      button.continue Great! Let's go. . .

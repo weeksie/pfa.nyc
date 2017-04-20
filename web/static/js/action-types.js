@@ -1,0 +1,9 @@
+export const SET_PROBLEMS   = 'SET_PROBLEMS';
+export const SET_VALUE      = 'SET_VALUE';
+export const SET_INDEX      = 'SET_INDEX';
+export const MATCH          = 'MATCH';
+export const RESET_INPUT    = 'RESET_INPUT';
+export const BLUR           = 'BLUR';
+export const FOCUS          = 'FOCUS';
+export const MOVE_SELECTION = 'MOVE_SELECTION';
+export const GO             = 'GO';
