@@ -103,7 +103,6 @@ I then integrated Leaflet with React and Redux for the front end. Built out a Gr
 
 
 ################################################################################
-
 # cards
 
 Repo.insert! %Card{
