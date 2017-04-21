@@ -40,6 +40,9 @@ defmodule PFA.Mixfile do
      {:cowboy, "~> 1.0"},
      {:phoenix_slime, "~> 0.8.0"},
 
+     # App
+     {:earmark, "~> 1.1"},
+
      # APIs
      # {:, ""},
 
@@ -51,7 +54,6 @@ defmodule PFA.Mixfile do
      # Testing
      {:ex_machina, "~> 2.0", only: :test},
      {:quixir, "~> 0.9", only: :test}
-
 
     ]
   end

@@ -1,8 +1,10 @@
-/* This file is for your main application css. */
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,800');
 @import "mixins";
 
-$bold-weight: 800;
+$f-bold: 800;
+$f-semi-bold: 600;
+$f-normal: 400;
+$f-light: 300;
+
 $body-color: #4A4A4A;
 $light-grey: #9B9B9B;
 $extra-light-grey: #CFCFCF;
@@ -10,12 +12,17 @@ $body-background: #FDFDFD;
 $highlight-color-1: #D0011B;
 $highlight-color-2: #50E3C2;
 $highlight-color-3: #BD0FE1;
-$font-family: "Open Sans", Helvetica, Arial, sans-serif;
+$font-family: "Open Sans", sans-serif;
 $button-color: $highlight-color-2;
 
+$project-background-color: #F0F4EB;
+$project-outline-color: #C2D4B0;
 
 $z-level-0: 0;
 $z-level-top: 10;
+
+
+/* elements */
 
 body {
   font-family: $font-family;
@@ -25,9 +32,17 @@ body {
   padding: 0;
 }
 
+a {
+  text-decoration: none;
+  color: $body-color;
+  &:hover {
+    color: $button-color;
+  }
+}
+
 nav {
   margin: 1em;
-  font-weight: $bold-weight;
+  font-weight: $f-bold;
   ul {
     display: inline-block;
     list-style: none;
@@ -47,10 +62,11 @@ nav {
 
 #content {
   margin: 5rem 2rem 2rem 6rem;
+  max-width: 1128px;
 }
 
 h1, h2 {
-  font-weight: $bold-weight;
+  font-weight: $f-bold;
   line-height: 1.5;
   margin: 0;
 }
@@ -68,6 +84,13 @@ h2 {
 span {
   display: inline-block;
 }
+
+p {
+  font-size: 1.5rem;
+}
+
+
+/* styles */
 
 .problem-type {
   ul {
@@ -92,7 +115,7 @@ span {
     border: 0;
     outline: 0;
     font-family: $font-family;
-    font-weight: $bold-weight;
+    font-weight: $f-bold;
     font-size: 2.5rem;
     background: url(/images/triangle.png) right center no-repeat;
     background-color: $body-background;
@@ -111,7 +134,6 @@ span {
     display: block;
   }
 }
-
 
 #response {
   &:hover ul {
@@ -134,7 +156,7 @@ span {
     padding: 0.5rem 1rem;
     font-size: 3rem;
     font-family: $font-family;
-    font-weight: 800;
+    font-weight: $f-bold;
     text-transform: uppercase;
     color: $body-background;
     background: $button-color;
@@ -145,6 +167,42 @@ span {
   }
 }
 
+ul.projects {
+  list-style: none;
+  padding: 0;
+  li {
+    margin-bottom: 2rem;
+    font-size: 1.5rem;
+  }
+}
+
+.project {
+  h2 {
+    margin-top: 0;
+  }
+  background-color: $project-background-color;
+  padding: 1em;
+  border-radius: 3px;
+  img {
+    max-width: 100%;
+    border: 1px solid $project-outline-color;
+  }
+}
+
+.testimonials {
+  li {
+    font-weight: $f-light;
+  }
+  .attribution {
+    font-style: italic;
+  }
+  .company {
+    font-weight: $f-semi-bold;
+  }
+}
+
+
+/* application classes */
 .hidden {
   display: none;
 }
@@ -259,7 +317,7 @@ span {
     li {
       padding-right: 0.25em;
       &:after {
-        font-weight: 800;
+        font-weight: $f-bold;
         content: " / ";
       }
       &:last-child {
@@ -268,9 +326,6 @@ span {
         }
       }
     }
-  }
-  #content {
-    margin: 1rem 0.5rem 0.5rem 1.5rem;
   }
 
   h1 {
@@ -284,9 +339,29 @@ span {
     font-size: 1rem;
   }
 
+  p {
+    font-size: 1rem;
+  }
+
+  #content {
+    margin: 1rem 1.5rem 0.5rem 1.5rem;
+  }
+
+  #fork-me {
+    display: none;
+  }
+
   .next{
     button {
       font-size: 1.15rem;
     }
   }
+
+  ul.projects {
+    li {
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+  }
+
 }

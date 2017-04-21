@@ -26,6 +26,9 @@ config :logger, :console,
 config :phoenix, :template_engines,
   slim: Phoenix.Slime.Engine, slime: PhoenixSlime.Engine
 
+config :slime, :embedded_engines, %{
+  markdown: PFA.MarkdownEngine
+}
 
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.

@@ -87,7 +87,8 @@ export default class HomePage {
     $response.find("h2").addClass('fade-in');
     $next.find('button.continue').on('click', (e) => {
       e.preventDefault();
-      console.log("Go to ", $next.data('url'));
+      const url = $next.data('url');
+      Turbolinks.visit(`/services/${url}`);
     });
 
     store.subscribe(() => {

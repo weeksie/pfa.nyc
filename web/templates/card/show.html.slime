@@ -1,0 +1,10 @@
+.service
+  h1= @card.name
+
+  p.service-description== raw Earmark.as_html!(@card.description)
+
+
+  ul.projects
+    = for project <- @card.projects do
+      li
+        = render PFA.ProjectView, "_project.html", project: project

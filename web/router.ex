@@ -17,6 +17,7 @@ defmodule PFA.Router do
     pipe_through :browser # Use the default browser stack
 
     get "/", PageController, :index
+    get "/services/:card_url", CardController, :show
   end
 
   # Other scopes may use custom stacks.
