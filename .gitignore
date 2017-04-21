@@ -22,3 +22,39 @@ erl_crash.dump
 # secrets file as long as you replace its contents by environment
 # variables.
 /config/prod.secret.exs
+
+
+# removed so that people aren't stuck someone's dev env. 
+/config/dev.exs
+/config/test.exs
+
+
+# Data import / shapefiles
+/priv/data/districts114*.zip
+*.cpg
+*.dbf
+*.prj
+*.shp
+*.shp.ea.iso.xml
+*.shp.iso.xml
+*.shp.xml
+*.shx
+*.zip
+
+# Emacs
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
+auto-save-list
+tramp
+.\#*
+
+*_flymake.*
+flycheck_*.*
+.byebug_history
+notes.org
+
+# Mac garbage
+.DS_Store
