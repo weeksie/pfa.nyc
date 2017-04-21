@@ -1,4 +1,4 @@
-# Hi! This is a super basic brochure for PFA.NYC
+# Hi! This is a super basic brochure for pfa.nyc
 
 Why put my consulting microsite on github? Well, just so you can see
 how I code small things, I suppose. Also, it's a good way to walk
