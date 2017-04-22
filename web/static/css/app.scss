@@ -9,9 +9,10 @@ $body-color: #4A4A4A;
 $light-grey: #9B9B9B;
 $extra-light-grey: #CFCFCF;
 $body-background: #FDFDFD;
-$highlight-color-1: #D0011B;
+$highlight-color-1: #4990E2;
 $highlight-color-2: #50E3C2;
 $highlight-color-3: #BD0FE1;
+$highlight-color-final: #D0011B;
 $font-family: "Open Sans", sans-serif;
 $button-color: $highlight-color-2;
 
@@ -60,11 +61,6 @@ nav {
   }
 }
 
-#content {
-  margin: 5rem 2rem 2rem 6rem;
-  max-width: 1128px;
-}
-
 h1, h2 {
   font-weight: $f-bold;
   line-height: 1.5;
@@ -87,10 +83,23 @@ span {
 
 p {
   font-size: 1.5rem;
+  a {
+    display: inline-block;
+    border-bottom: 1px solid $button-color;
+  }
 }
 
+em {
+  font-weight: $f-semi-bold;
+  font-style: italic;
+}
 
 /* styles */
+
+#content {
+  margin: 5rem 2rem 2rem 6rem;
+  max-width: 1128px;
+}
 
 .problem-type {
   ul {
@@ -228,6 +237,9 @@ ul.projects {
 }
 .hi-2 {
   color: $highlight-color-3;
+}
+.hi-final {
+  color: $highlight-color-final;
 }
 
 /** touch styles **/

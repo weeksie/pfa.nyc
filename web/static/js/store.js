@@ -1,6 +1,10 @@
 import { createStore, combineReducers } from 'redux';
+import { VOLUME_ON, VOLUME_OFF } from './constants';
+
 import { SET_PROBLEMS, SET_VALUE, SET_INDEX, MATCH,
-         MOVE_SELECTION, RESET_INPUT, BLUR, FOCUS, GO } from './action-types';
+         MOVE_SELECTION, RESET_INPUT, BLUR, FOCUS, GO,
+         MUTE, UNMUTE, EGG_START, EGG_COUNTDOWN_START,
+         EGG_CANCEL, EGG_COUNTDOWN_TICK, EGG_TICK } from './action-types';
 
 /** State Shape
 
@@ -108,5 +112,45 @@ function input(state = { }, action) {
   }
 }
 
-export default createStore(combineReducers({autocomplete, menu, input}),
+function egg(state = { }, action) {
+  switch(action.type) {
+    case MUTE:
+      return Object.assign({ }, state, { volume: VOLUME_OFF });
+    case UNMUTE:
+      return Object.assign({ }, state, { volume: VOLUME_ON });
+    case EGG_COUNTDOWN_TICK:
+      return {
+        secondsLeft: action.secondsLeft,
+        timer: action.timer
+      };
+    case EGG_CANCEL:
+      return {
+        doCancel: true
+      };
+    case EGG_START:
+      return {
+        doStart: true,
+        volume: state.volume || VOLUME_OFF,
+        wordIndex: 0,
+        words: action.words,
+        objectWidth: action.objectWidth,
+        objectHeght: action.objectHeight,
+        x: action.x,
+        y: action.y,
+        boundX: action.boundX,
+        boundY: action.boundY
+      };
+    case EGG_TICK:
+      return Object.assign({ }, state, {
+        doStart: undefined,
+        x: action.x,
+        y: action.y,
+        wordIndex: action.wordIndex
+      });
+    default:
+      return state;
+  }
+}
+
+export default createStore(combineReducers({ autocomplete, menu, input, egg }),
                            window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());

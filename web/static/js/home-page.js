@@ -5,6 +5,9 @@ import { TRANSITION_END_EVENT, HIGHLIGHT_COLORS } from './constants';
 import ProblemMenu from './problem-menu';
 import TouchProblemMenu from './touch-problem-menu';
 
+import EasterEgg from './easter-egg';
+
+
 export default class HomePage {
   run() {
     if(!$("#greeting").length) {
@@ -15,8 +18,18 @@ export default class HomePage {
         $('body').addClass('is-touch');
         $('.problem-type input').replaceWith('<span class="touch-placeholder">. . .</span>');
       }
+      
+      this.egg = new EasterEgg({
+        target: "#egg",
+        timeout: 3000,
+        words: [
+          "Elixir!",
+          "Ruby!",
+          "Javascrrrrrript!"          
+        ]
+      });
+      
       this.fadeIn();
-
       // The transpiling is scope-fucking the variables
       // in `beginCycle` so it has to be called from here. :/
       //this.beginCycle();
@@ -66,7 +79,7 @@ export default class HomePage {
       }
 
       if(count++ >= transitions) {
-        $consultantType.html('<span class="hi-0">help</span>?');
+        $consultantType.html('<span class="hi-final">help</span>?');
         $consultantType.addClass('fade-in').one(TRANSITION_END_EVENT, self.showResponse.bind(self));
       } else {
         $consultantType.html(current);

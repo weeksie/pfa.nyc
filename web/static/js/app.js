@@ -15,9 +15,6 @@ import "phoenix_html"
 import Turbolinks from "turbolinks";
 import HomePage from "./home-page";
 
-/* const homePage = new HomePage();
- * homePage.run();
- * */
 Turbolinks.start();
 
 document.addEventListener("turbolinks:load", () => {

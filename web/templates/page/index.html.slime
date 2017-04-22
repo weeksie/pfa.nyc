@@ -24,3 +24,7 @@
 
   .next.invisible
     button.continue Great! Let's go. . .
+
+#egg
+  .volume
+  canvas

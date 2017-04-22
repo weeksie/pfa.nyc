@@ -1,0 +1,9 @@
+h1 Projects
+
+p This is a small selection of projects that I have worked on.
+
+ul.projects
+  = for project <- @projects do
+    li
+      = render PFA.ProjectView, "_project.html", project: project 
+

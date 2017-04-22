@@ -5,7 +5,7 @@ defmodule PFA.ProjectController do
   alias PFA.Project
 
   def index(conn, _params) do
-    render conn, "index.html"
+    render conn, "index.html", projects: Repo.all(Project)
   end
 
   def show(conn, %{ "project_url" => url }) do

@@ -5,7 +5,7 @@ defmodule PFA.CardController do
   alias PFA.Card
 
   def index(conn, _params) do
-    render conn, "index.html"
+    render conn, "index.html", cards: Repo.all(Card)
   end
 
   def show(conn, %{ "card_url" => url }) do
