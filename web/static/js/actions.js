@@ -1,9 +1,13 @@
 import store from './store';
 
-import { SET_PROBLEMS, SET_INDEX, SET_VALUE, MATCH,
+import { RESET_ALL, SET_PROBLEMS, SET_INDEX, SET_VALUE, MATCH,
          MOVE_SELECTION, RESET_INPUT, BLUR, FOCUS, GO,
          MUTE, UNMUTE, EGG_START, EGG_STOP, EGG_COUNTDOWN_START,
          EGG_COUNTDOWN_CANCEL, EGG_COUNTDOWN_TICK, EGG_TICK } from './action-types';
+
+export function resetAll() {
+  store.dispatch({ type: RESET_ALL });
+}
 
 export function setProblems(problems) {
   store.dispatch(mkProblems(problems, { type: SET_PROBLEMS }));
@@ -90,32 +94,46 @@ export function mute() {
 export function stopEgg() {
   const { timer } = getState('egg');
   if(timer) {
-    clearTimeout(timer);
+    clearInterval(timer);
   }
 
   store.dispatch({
-    type: EGG_CANCEL
+    type: EGG_STOP,
+    secondsLeft: undefined
   });
 }
 
-export function startEgg({ words, x, y, objectWidth, objectHeight, boundX, boundY }) {
+export function startEgg({ pixelsPerTick, boundX, boundY, objectWidth, objectHeight, maxLaps }) {
+  const startY          = boundY + (objectHeight * 2),
+        endY            = boundY - objectHeight,
+        totalDistance   = endY - startY,
+        totalIterations = toPos(totalDistance / pixelsPerTick);
+
   store.dispatch({
     type: EGG_START,
-    words,
-    x,
-    y,
+    maxLaps: maxLaps || 1,
+    laps: 0,
+    x: 0,
+    y: startY,
+    iteration: 0,
+    moveUp: true,
+    boundX,
+    boundY,
+    startY,
+    endY,
+    totalDistance,
+    totalIterations,
     objectWidth,
     objectHeight,
-    boundX,
-    boundY
   });
+  setTimeout(eggTick, 1);
 }
 
 export function startCountdown(ms) {
   const { timer } = getState('egg');
 
   if(timer) {
-    clearTimeout(timer);
+    clearInterval(timer);
   }
 
   const seconds  = ms / 1000,
@@ -129,9 +147,9 @@ export function startCountdown(ms) {
               timer
             });
           } else {
-            clearTimeout(timer);
+            clearInterval(timer);
           }
-        }, ms);
+        }, 1500);
 
   store.dispatch({
     type: EGG_COUNTDOWN_TICK,
@@ -142,23 +160,75 @@ export function startCountdown(ms) {
 
 
 export function eggTick() {
-  const { wordIndex, words, x, y, boundX, boundY } = store.getState().egg;
+  const {
+    maxLaps,
+    laps,
+    doCancel,
+    iteration,
+    totalDistance,
+    totalIterations,
+    moveUp,
+    x,
+    y,
+    startY,
+    endY
+  } = getState("egg");
 
-  if(x === 0 && y === 0) {
+
+  if(doCancel) {
+    return;
+  }
+
+
+  let nextIteration, nextStart, nextDistance, nextUp, newLaps;
+
+  if(iteration < totalIterations) {
+    nextIteration = iteration + 1;
+    nextUp        = moveUp;
+    newLaps       = laps;
+  } else {
+    nextIteration = 0;
+    nextUp        = !moveUp;
+    newLaps       = laps + 1;
+  }
+
+  if(nextUp) {
+    nextStart     = startY;
+    nextDistance  = endY - startY;
+  } else {
+    nextStart     = endY;
+    nextDistance  = startY - endY;
+  }
+
+  if(newLaps > maxLaps) {
+    startEgg(getState("egg", { pixelsPerTick: randSpeed() }));
+  } else {
+    if('requestAnimationFrame' in window){
+      requestAnimationFrame(eggTick);
+    }
+
     store.dispatch({
       type: EGG_TICK,
-      x: boundX / 2,
-      y: boundY - 1
+      iteration: nextIteration,
+      totalDistance: nextDistance,
+      moveUp: nextUp,
+      laps: newLaps,
+      x: x,
+      y: easeOutCubic(nextIteration, nextStart, nextDistance, totalIterations)
     });
   }
 }
 
 
-
 /*** utils ***/
 
-function getState(namespace) {
-  return store.getState()[namespace];
+export function randSpeed() {
+  return 1 + Math.random() * 5;
+}
+
+function getState(namespace, ext = { }) {
+  const state = store.getState()[namespace];
+  return Object.assign({ }, state, ext);
 }
 
 function strip(str) {
@@ -173,4 +243,12 @@ function mkProblems(pairList, state) {
     problems,
     active
   });
+}
+
+function toPos(n) {
+  return Math.sqrt(Math.pow(n, 2));
+}
+
+function easeOutCubic(current, start, totalChange, count) {
+  return totalChange * (Math.pow(current / count - 1, 3) + 1) + start;
 }

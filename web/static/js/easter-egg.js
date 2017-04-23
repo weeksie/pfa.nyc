@@ -1,27 +1,52 @@
 import $ from 'jquery';
 import store from './store';
-import { VOLUME_ON, VOLUME_OFF, EGG_IMAGE } from './constants';
-import { startCountdown, startEgg, stopEgg, mute, unmute } from './actions';
+import { VOLUME_ON, VOLUME_OFF, EGG_IMAGE, KEY_ESC } from './constants';
+import {
+  // actions
+  startCountdown, startEgg, stopEgg, eggTick, mute, unmute,
+
+  // util - I know, it's an odd place to put it. couldn't be bothered
+  // making a whole new file just for that.
+  randSpeed
+} from './actions';
 
 export default class EasterEgg {
 
-  constructor({ target, timeout, words }) {
-    const $egg = $(target),
-          $canvas = $egg.find('canvas'),
-          $volume = $egg.find('.volume');
-
-    this.$egg      = $egg;
-    this.$canvas   = $canvas;
-    this.$volume   = $volume;
+  constructor({ target, timeout }) {
+    this.title     = document.title;
+    this.timeout   = timeout;
+    this.target    = target;
     this.image     = new Image();
     this.image.src = EGG_IMAGE;
     this.state     = { };
-    this.timer     = setTimeout(() => {
-      startCountdown(1000);
-    }, timeout);
+    this.run();
 
     this.setState(store.getState(), false);
     store.subscribe(() => this.setState(store.getState()));
+
+    $(window).on('keydown', (e) => {
+      if(e.which === KEY_ESC) stopEgg();
+    });
+    $(document).on('click touchend', (e) => {
+      stopEgg();
+    })
+  }
+
+  run() {
+    stopEgg();
+
+    this.$egg       = $(this.target);
+    this.$canvas    = this.$egg.find('canvas');
+    this.$volume    = this.$egg.find('.volume');
+    this.$countdown = this.$egg.find('.countdown');
+
+    if(this.timer) {
+      this.timer = clearTimeout(this.timer);
+    }
+
+    this.timer = setTimeout(() => {
+      startCountdown(10000); // start countdown at 10 seconds
+    }, this.timeout);
   }
 
   setState({ egg }, shouldRender = true) {
@@ -30,19 +55,16 @@ export default class EasterEgg {
     this.state = egg;
 
     if(secondsLeft === 0) {
-      startEgg({
-        x: 0,
-        y: 0,
-        objectWidth: this.image.width,
-        objectHeight: this.image.height,
-        boundX: $(window).width(),
-        boundY: $(window).height()
-      });
-    }
+      const boundX = window.innerWidth,
+            boundY = window.innerHeight;
 
-    if(doCancel) {
-      clearTimeout(this.timer);
-      return;
+      startEgg({
+        boundX,
+        boundY,
+        pixelsPerTick: randSpeed(),
+        objectWidth: this.image.width,
+        objectHeight: this.image.height
+      });
     }
 
     if(shouldRender) {
@@ -51,27 +73,48 @@ export default class EasterEgg {
   }
 
   render() {
-    const { doCancel, doStart, secondsLeft } = this.state;
-    if(doCancel) {
-      this.reset();
-    }
+    const { doCancel, doStart, secondsLeft, x } = this.state;
     if(doStart) {
-      this.animate();
+      this.$canvas.addClass('active');
+    } else if(doCancel) {
+      this.$canvas.removeClass('active');
     }
-    if(secondsLeft !== undefined) {
+
+    if(secondsLeft === undefined) {
+      this.$countdown.addClass('invisible');
+      document.title = this.title;
+    } else {
+      this.$countdown.removeClass('invisible');
       this.countdown(secondsLeft);
     }
-  }
 
-  reset() {
-
+    if(x !== undefined) {
+      this.animate();
+    }
   }
 
   animate() {
+    const canvas = this.$canvas[0],
+          ctx    = canvas.getContext('2d'),
 
+          { x, y, boundX, boundY,
+            objectWidth, objectHeight } = this.state;
+
+    canvas.width  = boundX;
+    canvas.height = boundY;
+    ctx.clearRect(0, 0, boundX, boundY);
+    ctx.drawImage(this.image, x, y, objectWidth, objectHeight);
   }
 
   countdown(secondsLeft) {
-    console.log(`${secondsLeft} until the easter egg starts.`);
+    let content = secondsLeft;
+    if(secondsLeft === 2) {
+      content = "Almost there. . . .";
+    }
+    if(secondsLeft === 1) {
+      content = "Henry!";
+    }
+    this.$countdown.html(content);
+    document.title = `(${content}) ${this.title}`;
   }
 }

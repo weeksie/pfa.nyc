@@ -13,11 +13,23 @@
 // to also remove its path from "config.paths.watched".
 import "phoenix_html"
 import Turbolinks from "turbolinks";
+import $ from 'jquery';
+
 import HomePage from "./home-page";
+import EasterEgg from './easter-egg';
+
+import { resetAll } from './actions';
+
+const homePage = new HomePage();
+const egg      = new EasterEgg({
+  target: "#egg",
+  timeout: 10000
+});
 
 Turbolinks.start();
 
 document.addEventListener("turbolinks:load", () => {
-  const homePage = new HomePage();
+  resetAll();
+  egg.run();
   homePage.run();
 });

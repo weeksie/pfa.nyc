@@ -4,44 +4,40 @@ import store from './store';
 import { TRANSITION_END_EVENT, HIGHLIGHT_COLORS } from './constants';
 import ProblemMenu from './problem-menu';
 import TouchProblemMenu from './touch-problem-menu';
-
+import { stopEgg, resetAll } from './actions';
 import EasterEgg from './easter-egg';
 
-
+// doing state outside of Redux because it's not necessary for a simple staggered fade in.
+// old school js w/jquery hurr.
 export default class HomePage {
   run() {
     if(!$("#greeting").length) {
       return;
     }
-    $(document).ready(() => {
-      if(this._isTouch()) {
-        $('body').addClass('is-touch');
-        $('.problem-type input').replaceWith('<span class="touch-placeholder">. . .</span>');
-      }
-      
-      this.egg = new EasterEgg({
-        target: "#egg",
-        timeout: 3000,
-        words: [
-          "Elixir!",
-          "Ruby!",
-          "Javascrrrrrript!"          
-        ]
-      });
-      
-      this.fadeIn();
-      // The transpiling is scope-fucking the variables
-      // in `beginCycle` so it has to be called from here. :/
-      //this.beginCycle();
+
+    if(this._isTouch()) {
+      $('body').addClass('is-touch');
+      $('.problem-type input').replaceWith('<span class="touch-placeholder">. . .</span>');
+    }
+
+    this.fadeIn();
+
+    /// aAAAAaaaRGGH STATE!!!!11111111
+    if(this.hasRun) {
       this.fastCycle();
-    });
+    } else {
+      this.hasRun = true;
+
+    // The transpiling is scope-fucking the variables
+    // in `beginCycle` so it has to be called from here. :/
+      this.beginCycle()
+    }
   }
 
-  // dev only, so I don't have to wait for the fade in.
+  // also used for dev, so I don't have to wait for the fade in.
   fastCycle() {
-    console.warn("*** FOR DEV ONLY: FAST CYCLE THROUGH TRANSITIONS ***");
     $("h1.invisible").addClass("fade-in");
-    $(".consultant-type").addClass("fade-in");
+    $(".consultant-type").addClass("fade-in").html('<span class="hi-final">help</span>?');
     this.showResponse();
   }
 
@@ -101,6 +97,11 @@ export default class HomePage {
     $next.find('button.continue').on('click', (e) => {
       e.preventDefault();
       const url = $next.data('url');
+      if(url === undefined) {
+        return;
+      }
+      stopEgg();
+      resetAll();
       Turbolinks.visit(`/services/${url}`);
     });
 

@@ -20,6 +20,7 @@ $project-background-color: #F0F4EB;
 $project-outline-color: #C2D4B0;
 
 $z-level-0: 0;
+$z-level-1: 5;
 $z-level-top: 10;
 
 
@@ -99,6 +100,7 @@ em {
 #content {
   margin: 5rem 2rem 2rem 6rem;
   max-width: 1128px;
+  z-index: $z-level-1;
 }
 
 .problem-type {
@@ -211,6 +213,30 @@ ul.projects {
 }
 
 
+/** easter egg **/
+canvas {
+  display: none;
+  pointer-events: none;
+  &.active {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    display: block;
+  }
+}
+
+.countdown {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  font-weight: $f-bold;
+  font-size: 2rem;
+  padding: 1rem;
+  color: $body-color;
+  margin: 0;
+  @include opacity(0.25);
+}
+
 /* application classes */
 .hidden {
   display: none;
@@ -270,6 +296,7 @@ ul.projects {
   }
 
   .next {
+    z-level: $z-level-top;
     margin-top: 13rem;
   }
 }

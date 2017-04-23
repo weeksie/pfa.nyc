@@ -1,10 +1,10 @@
 import { createStore, combineReducers } from 'redux';
 import { VOLUME_ON, VOLUME_OFF } from './constants';
 
-import { SET_PROBLEMS, SET_VALUE, SET_INDEX, MATCH,
+import { RESET_ALL, SET_PROBLEMS, SET_VALUE, SET_INDEX, MATCH,
          MOVE_SELECTION, RESET_INPUT, BLUR, FOCUS, GO,
          MUTE, UNMUTE, EGG_START, EGG_COUNTDOWN_START,
-         EGG_CANCEL, EGG_COUNTDOWN_TICK, EGG_TICK } from './action-types';
+         EGG_STOP, EGG_COUNTDOWN_TICK, EGG_TICK } from './action-types';
 
 /** State Shape
 
@@ -123,34 +123,27 @@ function egg(state = { }, action) {
         secondsLeft: action.secondsLeft,
         timer: action.timer
       };
-    case EGG_CANCEL:
+    case EGG_STOP:
       return {
-        doCancel: true
+        doCancel: true,
+        timer: state.timer
       };
     case EGG_START:
-      return {
-        doStart: true,
-        volume: state.volume || VOLUME_OFF,
-        wordIndex: 0,
-        words: action.words,
-        objectWidth: action.objectWidth,
-        objectHeght: action.objectHeight,
-        x: action.x,
-        y: action.y,
-        boundX: action.boundX,
-        boundY: action.boundY
-      };
+      return Object.assign({ }, action, { doStart: true, type: undefined, volume: VOLUME_OFF });
     case EGG_TICK:
-      return Object.assign({ }, state, {
-        doStart: undefined,
-        x: action.x,
-        y: action.y,
-        wordIndex: action.wordIndex
-      });
+      return Object.assign({ }, state, action, { type: undefined, doStart: undefined });
     default:
       return state;
   }
 }
 
-export default createStore(combineReducers({ autocomplete, menu, input, egg }),
+const appReducer  = combineReducers({ autocomplete, menu, input, egg });
+const rootReducer = function(state, action) {
+  if(action.type === RESET_ALL) {
+    state = undefined;
+  }
+  return appReducer(state, action);
+}
+
+export default createStore(rootReducer,
                            window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
