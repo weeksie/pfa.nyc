@@ -20,16 +20,12 @@ export default class HomePage {
       $('.problem-type input').replaceWith('<span class="touch-placeholder">. . .</span>');
     }
 
-    this.fadeIn();
 
     /// aAAAAaaaRGGH STATE!!!!11111111
     if(this.hasRun) {
       this.fastCycle();
     } else {
       this.hasRun = true;
-
-    // The transpiling is scope-fucking the variables
-    // in `beginCycle` so it has to be called from here. :/
       this.beginCycle()
     }
   }
@@ -42,9 +38,19 @@ export default class HomePage {
   }
 
   fadeIn() {
-    $('h1.invisible:eq(0)').addClass('fade-in').one(TRANSITION_END_EVENT, () => {
-      $('h1.invisible:eq(1)').addClass('fade-in');
-    });
+    const $firstH1  = $('h1.invisible:eq(0)'),
+          $secondH1 = $('h1.invisible:eq(1)');
+
+    // Turbolinks is weird hitting a page other than the home page
+    // before navigating there. For some reason the first "invisible"
+    // h1 is already visible.
+    if($firstH1.is(':visible')) {
+      $firstH1.removeClass('fade-in');
+    }
+
+    $firstH1.one(TRANSITION_END_EVENT, () => {
+      $secondH1.addClass('fade-in');
+    }).addClass('fade-in');
   }
 
   beginCycle() {
@@ -58,8 +64,10 @@ export default class HomePage {
         hClass    = highlightClass(typeIndex),
         count     = 0;
 
-    $consultantType.addClass('invisible first');
+    this.fadeIn();
+
     $consultantType.one(TRANSITION_END_EVENT, consultantIn);
+    $consultantType.addClass('invisible first');
 
     function consultantIn() {
       $consultantType.removeClass('first');
@@ -98,7 +106,7 @@ export default class HomePage {
       e.preventDefault();
       const url = $next.data('url');
       if(url === undefined) {
-        return;
+        return; // handles random clicks, since the button is invisible, not display: none
       }
       stopEgg();
       resetAll();

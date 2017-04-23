@@ -109,6 +109,13 @@ export function startEgg({ pixelsPerTick, boundX, boundY, objectWidth, objectHei
         totalDistance   = endY - startY,
         totalIterations = toPos(totalDistance / pixelsPerTick);
 
+  const { timer } = getState("egg");
+
+  // all of thse need to be consolidated
+  if(timer) {
+    clearInterval(timer);
+  }
+
   store.dispatch({
     type: EGG_START,
     maxLaps: maxLaps || 1,
@@ -126,7 +133,8 @@ export function startEgg({ pixelsPerTick, boundX, boundY, objectWidth, objectHei
     objectWidth,
     objectHeight,
   });
-  setTimeout(eggTick, 1);
+  // start the animation
+  eggTick();
 }
 
 export function startCountdown(ms) {
@@ -139,14 +147,12 @@ export function startCountdown(ms) {
   const seconds  = ms / 1000,
         interval = setInterval(function() {
           const { secondsLeft, timer } = getState('egg');
-
-          if(secondsLeft > 0) {
-            store.dispatch({
-              type: EGG_COUNTDOWN_TICK,
-              secondsLeft: secondsLeft - 1,
-              timer
-            });
-          } else {
+          store.dispatch({
+            type: EGG_COUNTDOWN_TICK,
+            secondsLeft: secondsLeft - 1,
+            timer
+          });
+          if(secondsLeft - 1 === 0) {
             clearInterval(timer);
           }
         }, 1500);
