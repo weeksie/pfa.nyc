@@ -12,7 +12,7 @@ config :pfa,
 # Configures the endpoint
 config :pfa, PFA.Endpoint,
   http: [port: { :system, "PORT" }],
-  url: [host: "0.0.0.0", port: { :system, "PORT" }],
+  url: [host: "0.0.0.0"],
   secret_key_base: "7w9mb2ly002WhDcD7yZlBIRORslkhzilRksyPsCFKDKlldsI4zRwx3MAseTfoiCT",
   render_errors: [view: PFA.ErrorView, accepts: ~w(html json)],
   pubsub: [name: PFA.PubSub,
