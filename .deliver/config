@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-APP="PFA" # name of your release
+APP="pfa" # name of your release
 
 BUILD_HOST="107.170.71.198" # host where to build the release
 BUILD_USER="deploy" # local user at build host
