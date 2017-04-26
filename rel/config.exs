@@ -30,7 +30,7 @@ end
 environment :prod do
   set include_erts: true
   set include_src: false
-  set cookie: :"7m}S|jUl$C0xn)wr[K$Q=GKzaL/%Pj8PJD()PqTMAS4c8;[mC`gFXEag=ogvmZm<"
+  set cookie: set cookie: :crypto.hash(:sha256, System.get_env("COOKIE")) |> Base.encode16 |> String.to_atom
 end
 
 # You may define one or more releases in this file.
@@ -39,7 +39,6 @@ end
 # will be used by default
 
 release :pfa do
-  set default: true
   set version: current_version(:pfa)
   set applications: [
     :runtime_tools
