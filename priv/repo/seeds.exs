@@ -65,7 +65,7 @@ I came in to consult, introducing React.js and Redux as a nice way to juggle all
 * Mentored developers, helping them to get up to speed with a new stack and left them with the skills to maintain it.
 * Communicated with the various departments to coordinate integration with enormous back end systems.
 
-The project ended up being a great success and greatly simplified the codebase allowing WebMD to free up resources for other projects.
+The project ended up being a resounding success and greatly simplified the codebase allowing WebMD to free up resources for other projects.
 """
 }
 

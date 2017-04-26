@@ -10,7 +10,7 @@ import { resetAll } from './actions';
 const homePage = new HomePage();
 const egg      = new EasterEgg({
   target: '#egg',
-  timeout: 120000
+  timeout: 240000
 });
 
 Turbolinks.start();
