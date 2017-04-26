@@ -7,6 +7,8 @@ BUILD_USER="deploy" # local user at build host
 BUILD_AT="/git/pfa.nyc/builds" # build directory on build host
 RELEASE_DIR="/git/pfa.nyc/builds/rel/pfa.nyc"
 
+USING_DISTILLERY=true
+
 # STAGING_HOSTS="server ip / hostname" # staging / test hosts separated by space
 # STAGING_USER="git" # local user at staging hosts
 # TEST_AT="/test/my_awesome_app" # deploy directory on staging hosts. default is DELIVER_TO
