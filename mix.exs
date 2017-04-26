@@ -19,7 +19,7 @@ defmodule PFA.Mixfile do
   def application do
     [mod: {PFA, []},
      applications: [:phoenix, :phoenix_pubsub, :phoenix_html, :cowboy, :logger, :gettext,
-                    :phoenix_ecto, :postgrex, :phoenix_slime, :edeliver ]]
+                    :phoenix_ecto, :postgrex, :phoenix_slime, :earmark, :secure_random, :edeliver ]]
   end
 
   # Specifies which paths to compile per environment.
