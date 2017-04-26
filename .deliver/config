@@ -4,8 +4,8 @@ APP="pfa" # name of your release
 
 BUILD_HOST="107.170.71.198" # host where to build the release
 BUILD_USER="deploy" # local user at build host
-BUILD_AT="/git/pfa.nyc/builds" # build directory on build host
-RELEASE_DIR="/git/pfa.nyc/builds/rel/pfa.nyc"
+BUILD_AT="/git/pfa.nyc/_build" # build directory on build host
+RELEASE_DIR="/git/pfa.nyc/_build/rel/pfa.nyc"
 
 USING_DISTILLERY=true
 
