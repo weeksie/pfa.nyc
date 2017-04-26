@@ -58,6 +58,7 @@ config :logger, level: :info
 
 
 config :pfa, PFA.Endpoint,
+  server: true,
   secret_key_base: System.get_env("SECRET_KEY")
 
 # Configure your database
