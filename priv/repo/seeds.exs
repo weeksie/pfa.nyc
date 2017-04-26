@@ -14,6 +14,7 @@ alias PFA.Repo
 alias PFA.Project
 alias PFA.Card
 alias PFA.Testimonial
+alias PFA.Page
 
 # Testimonials
 #  * Emmett Shine
@@ -257,4 +258,15 @@ Repo.insert! %Testimonial{
   text: """
 Scotty is one of the most brilliant engineers I've ever met. We started Snepo together in 2006 and Scotty was foundational in its success. You know he wrote a programming language?
 """
+}
+
+
+Repo.insert! %Page{
+  url: "about",
+  content: File.read! "web/static/markdown/about.md"
+}
+
+Repo.insert %Page{
+  url: "how-does-it-work",
+  content: File.read! "web/static/markdown/how-does-it-work.md"
 }
