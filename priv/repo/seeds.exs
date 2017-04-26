@@ -24,7 +24,7 @@ alias PFA.Page
   url: "https://order.sweetgreen.com",
   image: "sweetgreen.png",
   description: """
-The Sweetgreeen ordering application was a sweeping project which consisted of the following components:
+The Sweetgreen ordering application was a sweeping project which consisted of the following components:
 
 * An Ember application for front end ordering
 * A Rails API server to the back end ordering, payment, and loyalty programs
