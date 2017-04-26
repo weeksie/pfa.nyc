@@ -58,3 +58,4 @@ notes.org
 
 # Mac garbage
 .DS_Store
+.deliver/releases/

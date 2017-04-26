@@ -13,7 +13,7 @@ use Mix.Config
 # which you typically run after static files are built.
 config :pfa, PFA.Endpoint,
   http: [port: {:system, "PORT"}],
-  url: [host: "example.com", port: 80],
+  url: [host: System.get_env("HOSTNAME"), server: true, check_origin: false],
   cache_static_manifest: "priv/static/manifest.json"
 
 # Do not print debug messages in production
@@ -56,6 +56,14 @@ config :logger, level: :info
 #     config :pfa, PFA.Endpoint, server: true
 #
 
-# Finally import the config/prod.secret.exs
-# which should be versioned separately.
-import_config "prod.secret.exs"
+
+config :pfa, PFA.Endpoint,
+  secret_key_base: System.get_env("SECRET_KEY")
+
+# Configure your database
+config :pfa, PFA.Repo,
+  adapter: Ecto.Adapters.Postgres,
+  username: "pfa",
+  password: System.get_env("PG_PASSWORD"),
+  database: "pfa_prod",
+  pool_size: 20

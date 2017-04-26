@@ -19,7 +19,7 @@ defmodule PFA.Mixfile do
   def application do
     [mod: {PFA, []},
      applications: [:phoenix, :phoenix_pubsub, :phoenix_html, :cowboy, :logger, :gettext,
-                    :phoenix_ecto, :postgrex, :phoenix_slime ]]
+                    :phoenix_ecto, :postgrex, :phoenix_slime, :edeliver ]]
   end
 
   # Specifies which paths to compile per environment.
@@ -53,8 +53,11 @@ defmodule PFA.Mixfile do
 
      # Testing
      {:ex_machina, "~> 2.0", only: :test},
-     {:quixir, "~> 0.9", only: :test}
+     {:quixir, "~> 0.9", only: :test},
 
+     # Deployment
+     {:edeliver, "~> 1.4.2"},
+     {:distillery, ">= 0.8.0", warn_missing: false}
     ]
   end
 
