@@ -1,0 +1,6 @@
+.testimonial
+  p= md @testimonial.text
+  .attribution
+    span.person=@testimonial.person
+    = if @testimonial.company do
+      span.company= link @testimonial.company, to: @testimonial.url

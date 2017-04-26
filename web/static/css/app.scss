@@ -43,7 +43,7 @@ a {
 }
 
 nav {
-  margin: 1em;
+  margin: 1rem;
   font-weight: $f-bold;
   ul {
     display: inline-block;
@@ -93,6 +93,13 @@ p {
 em {
   font-weight: $f-semi-bold;
   font-style: italic;
+}
+
+footnotes {
+  font-size: 0.8rem;
+  a {
+    color: $light-grey;
+  }
 }
 
 /* styles */
@@ -178,7 +185,8 @@ em {
   }
 }
 
-ul.projects {
+
+ul.projects, ul.cards {
   list-style: none;
   padding: 0;
   li {
@@ -200,15 +208,45 @@ ul.projects {
   }
 }
 
-.testimonials {
-  li {
+.more-info {
+  a {
+    display: inline-block;
+    font-weight: $f-semi-bold;
+    border-bottom: 1px solid $highlight-color-2;
+  }
+}
+
+
+.testimonial {
+  margin: 0;
+  padding: 0;
+  p {
+    font-size: 1rem;
     font-weight: $f-light;
   }
   .attribution {
     font-style: italic;
+    font-size: 1rem;
+    &:before {
+      content: "—";
+    }
   }
   .company {
+    display: inline-block;
+    margin-left: 0.5rem;
     font-weight: $f-semi-bold;
+  }
+}
+
+.with-testimonials {
+  display: flex;
+  flex: 1;
+  .content {
+    flex: 2;
+  }
+  .testimonial {
+    flex: 1;
+    padding-left: 2rem;
   }
 }
 
@@ -234,6 +272,7 @@ canvas {
   padding: 1rem;
   color: $body-color;
   margin: 0;
+  border-radius: 5px;
   @include opacity(0.25);
 }
 
@@ -345,14 +384,17 @@ canvas {
       font-size: 1.5rem;
     }
   }
+  .with-testimonials {
+    display: block;
+    .testimonial {
+      padding: 0rem 5rem 1rem;
+    }
+  }
 }
 
 @include mq("tablet-small", $type: "max") {
   nav {
     font-size: 0.65rem;
-    site {
-      display: none;
-    }
     li {
       padding-right: 0.25em;
       &:after {
@@ -400,6 +442,13 @@ canvas {
     li {
       margin-bottom: 1rem;
       font-size: 1rem;
+    }
+  }
+  .with-testimonials {
+    .testimonial {
+      font-size: 0.75rem;
+      p { font-size: 0.75rem; }
+      padding: 0rem 2.5rem 1rem;
     }
   }
 

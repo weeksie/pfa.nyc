@@ -102,17 +102,19 @@ export default class EasterEgg {
 
     canvas.width  = boundX;
     canvas.height = boundY;
+    ctx.save();
     ctx.clearRect(0, 0, boundX, boundY);
     ctx.drawImage(this.image, x, y, objectWidth, objectHeight);
+    ctx.restore();
   }
 
   countdown(secondsLeft) {
     let content = secondsLeft;
-    if(secondsLeft === 2) {
-      content = "Almost there. . . .";
+    if(secondsLeft === 3) {
+      content = 'Almost there. . . .';
     }
     if(secondsLeft === 1) {
-      content = "Henry!";
+      content = 'Henry!';
     }
     this.$countdown.html(content);
     document.title = `(${content}) ${this.title}`;

@@ -1,4 +1,4 @@
 .project
   h2= @project.name
   img src="/images/#{@project.image}"
-  p.project-description= raw Earmark.as_html!(@project.description)
+  p.project-description= md @project.description

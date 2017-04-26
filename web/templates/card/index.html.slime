@@ -1,2 +1,16 @@
 h1 Services
 
+p Broadly, these are the things that I can help you with.
+
+ul.cards
+  = for { card, testimonial } <- List.zip([ @cards, @testimonials ]) do
+    li.card
+      h2= card.name
+      = if testimonial do
+        .with-testimonials
+          .content= md card.description
+          = render PFA.TestimonialView, "_testimonial.html", testimonial: testimonial
+      - else
+        .content= md card.description
+      .more-info
+        = link "More info", to: "/services/#{card.url}"

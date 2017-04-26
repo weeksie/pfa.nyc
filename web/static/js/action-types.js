@@ -9,7 +9,6 @@ export const FOCUS                = 'FOCUS';
 export const MOVE_SELECTION       = 'MOVE_SELECTION';
 export const GO                   = 'GO';
 
-
 // easter egg constants
 export const MUTE                 = 'MUTE';
 export const UNMUTE               = 'UNMUTE';

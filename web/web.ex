@@ -52,6 +52,7 @@ defmodule PFA.Web do
       import PFA.Router.Helpers
       import PFA.ErrorHelpers
       import PFA.Gettext
+      import PFA.MarkdownHelper
     end
   end
 

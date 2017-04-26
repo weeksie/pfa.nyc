@@ -9,7 +9,6 @@
       span.hi-0 technical consultant
       span ?
 
-
 #response
   h2.invisible YES! We have
     span &nbsp;
@@ -19,8 +18,8 @@
         li data-value="javascript-project" a javascript project
         li data-value="elixir-project" an elixir project
         li data-value="rails-project" a rails project
-        li data-value="project-lead" a project in need of leadership
-        li data-value="project-rescue" a project that just needs help!
+        li data-value="mentoring" a team in need of guidance
+        li data-value="project-rescue" #omghelp!
 
   .next.invisible
     button.continue Great! Let's go. . .

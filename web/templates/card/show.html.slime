@@ -1,8 +1,9 @@
 .service
   h1= @card.name
+  .with-testimonials
+    .content.service-description= md @card.description
 
-  p.service-description== raw Earmark.as_html!(@card.description)
-
+    = render PFA.TestimonialView, "_testimonial.html", testimonial: @testimonial
 
   ul.projects
     = for project <- @card.projects do

@@ -7,7 +7,7 @@ export default class ProblemMenu {
   constructor(jQueryArgs) {
     const $menu       = $(jQueryArgs),
           $input      = $menu.find('input'),
-          $type       = $(".problem-type"),
+          $type       = $('.problem-type'),
           $lis        = $menu.find('li'),
           problems    = $lis.toArray().map((li) => {
             const $li = $(li);

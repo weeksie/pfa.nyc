@@ -22,7 +22,7 @@ html lang="en"
         li
           a href="/services" Services
         li
-          a href="" How does it work?
+          a href="/how-does-it-work?" How does it work?
         li
           a href="mailto:scott.weeks@gmail.com" Contact
 

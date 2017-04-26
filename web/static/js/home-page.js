@@ -1,17 +1,18 @@
-import $ from "jquery";
+import $ from 'jquery';
 
 import store from './store';
+import { stopEgg, resetAll } from './actions';
 import { TRANSITION_END_EVENT, HIGHLIGHT_COLORS } from './constants';
+
 import ProblemMenu from './problem-menu';
 import TouchProblemMenu from './touch-problem-menu';
-import { stopEgg, resetAll } from './actions';
 import EasterEgg from './easter-egg';
 
 // doing state outside of Redux because it's not necessary for a simple staggered fade in.
 // old school js w/jquery hurr.
 export default class HomePage {
   run() {
-    if(!$("#greeting").length) {
+    if(!$('#greeting').length) {
       return;
     }
 
@@ -19,7 +20,6 @@ export default class HomePage {
       $('body').addClass('is-touch');
       $('.problem-type input').replaceWith('<span class="touch-placeholder">. . .</span>');
     }
-
 
     /// aAAAAaaaRGGH STATE!!!!11111111
     if(this.hasRun) {
@@ -32,8 +32,8 @@ export default class HomePage {
 
   // also used for dev, so I don't have to wait for the fade in.
   fastCycle() {
-    $("h1.invisible").addClass("fade-in");
-    $(".consultant-type").addClass("fade-in").html('<span class="hi-final">help</span>?');
+    $('h1.invisible').addClass('fade-in');
+    $('.consultant-type').addClass('fade-in').html('<span class="hi-final">help</span>?');
     this.showResponse();
   }
 
@@ -42,7 +42,7 @@ export default class HomePage {
           $secondH1 = $('h1.invisible:eq(1)');
 
     // Turbolinks is weird hitting a page other than the home page
-    // before navigating there. For some reason the first "invisible"
+    // before navigating there. For some reason the first 'invisible'
     // h1 is already visible.
     if($firstH1.is(':visible')) {
       $firstH1.removeClass('fade-in');
@@ -54,7 +54,7 @@ export default class HomePage {
   }
 
   beginCycle() {
-    const $consultantType = $(".consultant-type"),
+    const $consultantType = $('.consultant-type'),
           consultantTypes = $consultantType.data('consultant-type').split(','),
           transitions     = consultantTypes.length,
           self = this;
@@ -97,11 +97,11 @@ export default class HomePage {
   }
 
   showResponse() {
-    const $response = $("#response"),
-          $next     = $(".next"),
+    const $response = $('#response'),
+          $next     = $('.next'),
           menu      = this._isTouch()? new TouchProblemMenu($response) : new ProblemMenu($response);
 
-    $response.find("h2").addClass('fade-in');
+    $response.find('h2').addClass('fade-in');
     $next.find('button.continue').on('click', (e) => {
       e.preventDefault();
       const url = $next.data('url');

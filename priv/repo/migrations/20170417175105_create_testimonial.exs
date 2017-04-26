@@ -3,7 +3,7 @@ defmodule PFA.Repo.Migrations.CreateTestimonial do
 
   def change do
     create table(:testimonials) do
-      add :text, :string
+      add :text, :text
       add :person, :string
       add :company, :string
       add :url, :string

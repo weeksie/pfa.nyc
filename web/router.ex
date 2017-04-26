@@ -18,6 +18,7 @@ defmodule PFA.Router do
 
     get "/", PageController, :index
     get "/about", PageController, :about
+    get "/how-does-it-work", PageController, :how_does_it_work
     get "/services/:card_url", CardController, :show
     get "/services", CardController, :index
     get "/projects", ProjectController, :index

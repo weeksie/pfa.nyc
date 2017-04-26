@@ -1,63 +1,69 @@
-# PFA What?
+# Fine, so who are you?
 
-My accountant told me I needed a name for my S-Corp. While I was
-mulling that over, I happened to be talking with a friend, rattling
-off fake energy drink slogans. After a few decent riffs I said, "I
-feel like my arms are made of pit bulls!"
-
-And just like that, I solved my company name problem. *Pitbulls For
-Arms, INC* was born. So that's the whole story there. Aside from a
-concerned call from TD Bank asking me if my business had to do with
-dog fighting, it's been more of a curiosity than anything else. Still,
-PFA sounds pretty official, right?
-
-## Me?
+Hi! I'm Scotty. Pleased to meet you. I've been doing this for a long
+time.
 
 ### 2000-2003
-I fell backward into tech. I was in Seattle at the height of the dot
-com bubble. Everybody was in tech and there was this crazy utopian
-vibe shaking the city. I figured, why the hell not give it a shot?
+**SEATTLE** It was the height of the dot com bubble. There was this
+crazy utopian vibe shaking the city, it was intoxicating and I couldn't
+help but dip my toes in the water to see what the fuss was about.
 
-I dabbled with Flash(!), then figured I'd learn a little server magic,
-dipping my toes into PHP. After that, things escalated. Java, Ruby,
-Python, C, Lua, Haskell, and more soon followed.
+After some digging around, I learned a little server magic. PHP was my
+gateway drug. After that things escalated: Java, Ruby, Python, C, Lua,
+Haskell, and more soon followed.
 
-At this time I started *twelvestone*, a forum for designers and
+In 2002 I started *twelvestone*, a forum for designers and
 developers. At its height, there were around 10k active users. It had
-many incarnations: an old VBulletin setup, two different custom Rails
-forums, and now it exists as a small Slack channel. There's something
-there about the evolution of the web, but I'm not going to dig too
-deep.
+many incarnations: an old vBulletin setup, two different custom Rails
+forums, and now it exists as a small Slack channel. There's probably a
+metaphor in there about the evolution of the web, but I'm not going to
+dig too deep.
 
 ### 2003-2009
-In 2005 I found myself in Sydney, Australia
-co-founding [Snepo](snepo.com) with two workmates. We built amazing
-stuff. A kiosk platform with hundreds of installations--touch screens
-before the word "haptic" was used in polite conversation. A massively
-parallel video encoding server written in Erlang. A document database
-with a REST API written in Haskell *in 2006*. And, of course, lots of
-Rails.
+**SYDNEY, AUSTRALIA** In '03/04 the Ruby users group was also the
+Smalltalk users group on account of there not being enough of either
+camp to hold a proper meetup. Ruby was not a popular language back
+then. Times have sure changed, huh?
 
-In Sydney, in '03/04 the Ruby users group was also the Smalltalk users
-group. Just to give a vibe for how close knit and tiny the community
-was back then. Times have changed, huh?
+In 2005 I co-founded [Snepo](snepo.com) with two workmates. We built
+amazing stuff: A Lua-based kiosk platform with hundreds of
+installations--touch screens before the word "haptic" was used in
+polite conversation. A massively parallel video encoding server
+written in Erlang. A document database with a REST API written in
+Haskell *in 2006*. And, of course, lots of Rails.
+
 
 ### 2008-now
-In 2008 I moved back to the US. Consulted for Gucci, Indaba Music, Gin
-Lane, WebMD, and a ton others. Was VP Engineering for a startup. Built
-an MVP of a dating site that got up to about 3k members before I
-shelved it for another project. Lots of good times.
+**NEW YORK** I sold my third of Snepo and moved back to the US where I
+consulted for Gucci, Indaba Music, Gin Lane, WebMD, and a ton
+others. Was VP Engineering for a startup
+called [Plyfe](http://plyfe.com). Built an MVP dating app that got up
+to about 3k MAUs before I shelved it for other reasons. Lots of good
+times.
 
-So now, it's 2017, and I still love to spend my time building
-interesting stuff, helping smart people be super rad. Give me a shout
-and we'll get some coffee
+So now it's 2017.
+
+I still spend my time building interesting stuff and helping smart
+people be super rad.
+
+[Give me a shout](mailto:scott.weeks@gmail.com?subject=Let's get some coffee). Let's
+get some coffee and get to know each other.
 
 ## Other stuff
 
-I do other stuff too. I write fiction and you can see some of it
-at [scottyweeks.com](http://www.scottyweeks.com). I also blog about
-economics
+I do other stuff too. I write essays and fiction, some of which you
+can see at [scottyweeks.com](http://www.scottyweeks.com). I also blog
+about economics
 at [howlittlewisdom.com](http://www.howlittlewisdom.com). And, of
-course, you can feel free to stalk me
-on github [@weeksie](https://github.com/weeksie) if that's your thing.
+course, you can feel free to stalk me on
+github [@weeksie](https://github.com/weeksie) if that's your thing.
 
+## PFA? Who?
+
+A while back, I was riffing fake energy drink slogans with some
+friends and came up with: "I feel like my arms are made of pit
+bulls!" As luck would have it I also needed a name for my S-Corp.
+
+*Pitbulls For Arms, INC* was born.  Aside from TD Bank asking me if my
+business had anything to do with dog fighting, it hasn't been a big
+deal.

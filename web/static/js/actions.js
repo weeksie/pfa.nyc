@@ -104,14 +104,14 @@ export function stopEgg() {
 }
 
 export function startEgg({ pixelsPerTick, boundX, boundY, objectWidth, objectHeight, maxLaps }) {
-  const startY          = boundY + (objectHeight * 2),
+  const startY          = boundY + objectHeight,
         endY            = boundY - objectHeight,
         totalDistance   = endY - startY,
-        totalIterations = toPos(totalDistance / pixelsPerTick);
+        totalIterations = Math.ceil(toPos(totalDistance / pixelsPerTick));
 
   const { timer } = getState("egg");
 
-  // all of thse need to be consolidated
+  // all of these clearInterval calls need to be consolidated
   if(timer) {
     clearInterval(timer);
   }
@@ -131,9 +131,9 @@ export function startEgg({ pixelsPerTick, boundX, boundY, objectWidth, objectHei
     totalDistance,
     totalIterations,
     objectWidth,
-    objectHeight,
+    objectHeight
   });
-  // start the animation
+
   eggTick();
 }
 
@@ -181,7 +181,7 @@ export function eggTick() {
   } = getState("egg");
 
 
-  if(doCancel) {
+  if(doCancel || x === undefined) {
     return;
   }
 
@@ -207,9 +207,10 @@ export function eggTick() {
   }
 
   if(newLaps > maxLaps) {
-    startEgg(getState("egg", { pixelsPerTick: randSpeed() }));
+    delayEgg(2000); // nobody wants to hear their fan just because a dog is looking at them.
   } else {
-    if('requestAnimationFrame' in window){
+
+    if('requestAnimationFrame' in window) {
       requestAnimationFrame(eggTick);
     }
 
@@ -222,14 +223,20 @@ export function eggTick() {
       x: x,
       y: easeOutCubic(nextIteration, nextStart, nextDistance, totalIterations)
     });
+
   }
 }
 
+export function delayEgg(wait) {
+  setTimeout(() => {
+    startEgg(getState("egg", { pixelsPerTick: randSpeed() }));
+  }, wait);
+}
 
 /*** utils ***/
 
 export function randSpeed() {
-  return 1 + Math.random() * 5;
+  return 1 + Math.random() * 11;
 }
 
 function getState(namespace, ext = { }) {
