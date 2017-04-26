@@ -13,8 +13,12 @@ use Mix.Config
 # which you typically run after static files are built.
 config :pfa, PFA.Endpoint,
   http: [port: { :system, "PORT" }],
-  url: [host: System.get_env("HOSTNAME"), port: 80, server: true, check_origin: false],
-  cache_static_manifest: "priv/static/manifest.json"
+  url: [host: System.get_env("HOSTNAME"), port: 80],
+  cache_static_manifest: "priv/static/manifest.json",
+  check_origin: false,
+  server: true,
+  secret_key_base: System.get_env("SECRET_KEY")
+
 
 # Do not print debug messages in production
 config :logger, level: :info
@@ -57,9 +61,6 @@ config :logger, level: :info
 #
 
 
-config :pfa, PFA.Endpoint,
-  server: true,
-  secret_key_base: System.get_env("SECRET_KEY")
 
 # Configure your database
 config :pfa, PFA.Repo,
