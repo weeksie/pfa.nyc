@@ -39,6 +39,7 @@ end
 # will be used by default
 
 release :pfa do
+  set default: true
   set version: current_version(:pfa)
   set applications: [
     :runtime_tools

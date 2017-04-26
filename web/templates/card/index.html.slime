@@ -8,9 +8,14 @@ ul.cards
       h2= card.name
       = if testimonial do
         .with-testimonials
-          .content= md card.description
+          .content
+            = md card.description
+            .more-info
+              = link "More info", to: "/services/#{card.url}"
+
           = render PFA.TestimonialView, "_testimonial.html", testimonial: testimonial
       - else
         .content= md card.description
-      .more-info
-        = link "More info", to: "/services/#{card.url}"
+            = md card.description
+            .more-info
+              = link "More info", to: "/services/#{card.url}"
