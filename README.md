@@ -145,6 +145,10 @@ If you let a page sit still without clicking on it for four minutes
 or so you will eventually see my trusty hound, Henry pop his head up
 from the bottom left corner of the page.
 
+![Heny in all his glory](web/static/images/henry.png)
+*Henry in all his glory*
+
+
 I shoved this off on Redux as well. It's a very simple canvas
 animation with a cubic easing function thrown in to make it look less
 mechanical.
