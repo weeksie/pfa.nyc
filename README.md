@@ -388,8 +388,7 @@ describe('Konami Code', () => {
 
   it('should start the egg', () => {
     keys.forEach(k => konami(k, args));
-    const { maxLaps } = store.getState().egg;
-    expect(maxLaps).toBeDefined();
+    expect(store.getState().egg.maxLaps).toBeDefined();
   });
 
   it('should reset on a missed code', () => {
