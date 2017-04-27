@@ -98,7 +98,7 @@ setState({ autocomplete, menu, input }, shouldRender = true) {
 }
 ```
 
-These views kinda mix up the React notion of props and state and it
+These views kinda mix up the React notion of props and state but it
 just doesn't matter for a project this small. If that was important,
 well, I'd be using React instead of rolling my own ad hoc thing for the
 grand total of three views that exist on the site.
