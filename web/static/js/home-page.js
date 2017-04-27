@@ -59,7 +59,7 @@ export default class HomePage {
           transitions     = consultantTypes.length,
           self = this;
 
-    let typeIndex = consultantTypes.indexOf('technical consultant'),
+    let typeIndex = consultantTypes.indexOf('mentor'),
         current   = consultantTypes[typeIndex],
         hClass    = highlightClass(typeIndex),
         count     = 0;

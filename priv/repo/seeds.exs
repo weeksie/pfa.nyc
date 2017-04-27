@@ -30,7 +30,7 @@ The Sweetgreen ordering application was a sweeping project which consisted of th
 * A Rails API server to the back end ordering, payment, and loyalty programs
 * A Rails CMS
 
-The project was developed at [Gin Lane](https://ginlane.com) where I took lead on the architecture and development. We took great pains to keep tight iteration cycles with the design and product teams, ensuring that each teams' vision of the project did not diverge.
+The project was developed at [Gin Lane](https://ginlane.com) where I took lead on the architecture and development. We took great pains to keep tight iteration cycles with the design and product teams, ensuring that each team's vision of the project did not diverge.
 
 The application was launched on time and to the great delight of both the client and the users.
 """
@@ -56,7 +56,7 @@ My first project consulting with [Gin Lane](http://ginlane.com) was to build out
   url: "https://webmd.com",
   image: "webmd.png",
   description: """
-WebMD and its professional arm, Medscape, had been trying to build out a new video player for their education department for years. The old codebase consisted of several different video players and had a tremendous amount of legacy code that made the task difficult ranging on impossible. The goal was to consolidate everything into one simple video library that all parts of the business could use.
+WebMD and its professional arm, Medscape, had been trying to build out a new video player for their education department for years. The old codebase consisted of several different video players and had a tremendous amount of legacy code that made the task difficult, verging on impossible. The goal was to consolidate everything into one simple video library that all parts of the business could use.
 
 I came in to consult, introducing React.js and Redux as a nice way to juggle all of the many demands on the video player while keeping it modular enough to use nearly anywhere. Key points:
 
@@ -184,7 +184,7 @@ Nothing I love more than growing a team of smart developers.
 
 Sometimes all that raw talent needs nurturing. Talent gets you a lot but out of the box it doesn't get you use of version control, project estimation and tracking, SCRUM/Kanban boards, unit testing, and so on.
 
-That stuff is hard because the right way to run a dev team depends a lot on the team itself. Big-M methodology books sell well but they can be worse than nothing at all if naively implemented.
+That stuff is hard because the right way to run a dev team depends a lot on the team itself. Big-M methodology books sell well but they can be worse than nothing if naively implemented.
 
 I have a lot of experience growing developers. It's a gentle art, since devs don't respond to top down authority. It's also rewarding as hell to see people that I've worked with go on to become amazing professionals.
 
@@ -215,7 +215,7 @@ Repo.insert! %Card{
   description: """
 About to launch and you can't figure out why your ping time is 500ms? Sweating bullets because the dev team told you that they'd be ready to go any day now, but you've blown your last five deadlines?
 
-I won't magically finish your project in a weekend. What I will do is give a clear eyed assessment of what needs to change and a roadmap to getting the project back on track in the most practical way possible.
+I won't magically finish your project in a weekend. What I will do is give a clear-eyed assessment of what needs to change and a roadmap to getting the project back on track in the most practical way possible.
 """
 }
 

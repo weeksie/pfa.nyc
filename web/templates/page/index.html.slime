@@ -3,7 +3,7 @@
   h1.invisible
     span Do you need
   h1.invisible
-    span.consultant-type(data-consultant-type="elixir developer,javascript developer,ruby developer,technical consultant")
+    span.consultant-type(data-consultant-type="elixir developer,javascript developer,ruby developer,mentor")
       span a
       span &nbsp;
       span.hi-0 technical consultant

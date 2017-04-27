@@ -12,9 +12,9 @@ doing what works, and what works depends on context.
 ## Getting to know the code and the business
 
 Next up, unless this is a green field project, I'll spend time
-understanding where the code is at. Bugfixes and small features. In
-the process I'll get an idea for where the business is at and how good
-the communication lines are between stakeholders and production.
+understanding the codebase. Bugfixes and small features. In the
+process I'll get an idea for where the business is and how good the
+communication lines are between stakeholders and production.
 
 ## The work
 

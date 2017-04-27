@@ -228,9 +228,6 @@ ul.projects, ul.cards {
   .attribution {
     font-style: italic;
     font-size: 1rem;
-    &:before {
-      content: "—";
-    }
   }
   .company {
     display: inline-block;

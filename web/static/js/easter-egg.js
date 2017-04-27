@@ -3,7 +3,7 @@ import store from './store';
 import { VOLUME_ON, VOLUME_OFF, EGG_IMAGE, KEY_ESC } from './constants';
 import {
   // actions
-  startCountdown, startEgg, stopEgg, eggTick, mute, unmute,
+  startCountdown, startEgg, stopEgg, eggTick, mute, unmute, konami,
 
   // util - I know, it's an odd place to put it. couldn't be bothered
   // making a whole new file just for that.
@@ -25,7 +25,11 @@ export default class EasterEgg {
     store.subscribe(() => this.setState(store.getState()));
 
     $(window).on('keydown', (e) => {
-      if(e.which === KEY_ESC) stopEgg();
+      if(e.which === KEY_ESC) {
+        stopEgg();
+      } else {
+        konami(e.wich);
+      }
     });
     $(document).on('click touchend', (e) => {
       stopEgg();
