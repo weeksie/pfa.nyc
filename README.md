@@ -143,7 +143,7 @@ Ta-da.
 
 If you let a page sit still without clicking on it for four minutes
 or so you will eventually see my trusty hound, Henry pop his head up
-from the bottom left corner of the page.
+from the bottom left corner.
 
 ![Heny in all his glory](web/static/assets/images/henry.png)
 
