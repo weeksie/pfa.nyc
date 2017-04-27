@@ -44,7 +44,7 @@ The application was launched on time and to the great delight of both the client
   url: "https://www.thereformation.com",
   image: "reformation.png",
   description: """
-My first project consulting with [Gin Lane](https://ginlane.com) was to build out an ecommerce solution for The Reformation. This website might be the very first ecom React JS front end to hit production. It was launched in the spring of 2014. I led both the front end and the server side development. This included an in depth customization of the Spree ecommerce platform.
+My first project consulting with [Gin Lane](http://ginlane.com) was to build out an ecommerce solution for The Reformation. This website might be the very first ecom React JS front end to hit production. It was launched in the spring of 2014. I led both the front end and the server side development. This included an in depth customization of the Spree ecommerce platform.
 """
 }
 

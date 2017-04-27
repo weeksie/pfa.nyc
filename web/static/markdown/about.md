@@ -25,7 +25,7 @@ Smalltalk users group on account of there not being enough of either
 camp to hold a proper meetup. Ruby was not a popular language back
 then. Times have sure changed, huh?
 
-In 2005 I co-founded [Snepo](snepo.com) with two workmates. We built
+In 2006 I co-founded [Snepo](snepo.com) with two workmates. We built
 amazing stuff: A Lua-based kiosk platform with hundreds of
 installations--touch screens before the word "haptic" was used in
 polite conversation. A massively parallel video encoding server
