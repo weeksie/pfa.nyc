@@ -4,7 +4,7 @@ import { VOLUME_ON, VOLUME_OFF } from './constants';
 import { RESET_ALL, SET_PROBLEMS, SET_VALUE, SET_INDEX, MATCH,
          MOVE_SELECTION, RESET_INPUT, BLUR, FOCUS, GO,
          MUTE, UNMUTE, EGG_START, EGG_COUNTDOWN_START,
-         EGG_STOP, EGG_COUNTDOWN_TICK, EGG_TICK } from './action-types';
+         EGG_STOP, EGG_COUNTDOWN_TICK, EGG_TICK, KONAMI_CODE } from './action-types';
 
 /** State Shape
 
@@ -114,6 +114,10 @@ function input(state = { }, action) {
 
 function egg(state = { }, action) {
   switch(action.type) {
+    case KONAMI_CODE:
+      return Object.assign({ }, state, {
+        konami: action.konami
+      });
     case MUTE:
       return Object.assign({ }, state, { volume: VOLUME_OFF });
     case UNMUTE:

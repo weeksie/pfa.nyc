@@ -76,5 +76,5 @@ infinitely more reusable.**
 ----
 
 <footnotes>
-  <a id="except" name="except" href="#except-back">* Emergency optimizations or very short projects may not follow this process. These kinds of projects can be as short as a few hours or days and require little in the way of discovery.</a>
+  <a id="except" name="except" href="#except-back">* Emergency optimizations or very short projects may not follow this process. These kinds of projects are often as brief as a few hours or days and require little in the way of discovery.</a>
 </footnotes>

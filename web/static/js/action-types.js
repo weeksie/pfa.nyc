@@ -12,6 +12,7 @@ export const GO                   = 'GO';
 // easter egg constants
 export const MUTE                 = 'MUTE';
 export const UNMUTE               = 'UNMUTE';
+export const KONAMI_CODE          = 'KONAMI_CODE';
 export const EGG_START            = 'EGG_START';
 export const EGG_STOP             = 'EGG_STOP';
 export const EGG_TICK             = 'EGG_TICK';

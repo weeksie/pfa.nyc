@@ -7,3 +7,4 @@ export const VOLUME_ON            = 'VOLUME_ON';
 export const VOLUME_OFF           = 'VOLUME_OFF';
 export const EGG_IMAGE            = '/images/henry.png';
 export const KEY_ESC              = 27;
+export const KONAMI               = "38384040373937396665";

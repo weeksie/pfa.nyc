@@ -1,9 +1,11 @@
 import store from './store';
 
+import { KONAMI } from './constants';
+
 import { RESET_ALL, SET_PROBLEMS, SET_INDEX, SET_VALUE, MATCH,
          MOVE_SELECTION, RESET_INPUT, BLUR, FOCUS, GO,
          MUTE, UNMUTE, EGG_START, EGG_STOP, EGG_COUNTDOWN_START,
-         EGG_COUNTDOWN_CANCEL, EGG_COUNTDOWN_TICK, EGG_TICK } from './action-types';
+         EGG_COUNTDOWN_CANCEL, EGG_COUNTDOWN_TICK, EGG_TICK, KONAMI_CODE } from './action-types';
 
 export function resetAll() {
   store.dispatch({ type: RESET_ALL });
@@ -78,6 +80,34 @@ export function go() {
 }
 
 /*** Easter eggy actions ***/
+
+export function konami(key, { objectWidth, objectHeight }) {
+  const { konami } = getState("egg"),
+        newKonami  = (konami || "") + key.toString();
+
+  if(newKonami === KONAMI) {
+    startEgg({
+      pixelsPerTick: randSpeed(),
+      boundX: window.innerWidth,
+      boundY: window.innerHeight,
+      maxLaps: 2,
+      konami: "",
+      objectWidth,
+      objectHeight
+    });
+  } else if(KONAMI.match(new RegExp(`^${newKonami}`))) {
+    store.dispatch({
+      type: KONAMI_CODE,
+      konami: newKonami.slice(0, KONAMI.length)
+    });
+  } else {
+    store.dispatch({
+      type: KONAMI_CODE,
+      konami: ""
+    });
+  }
+}
+
 
 export function unmute() {
   store.dispatch({

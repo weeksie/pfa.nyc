@@ -3,7 +3,7 @@ import store from './store';
 import { VOLUME_ON, VOLUME_OFF, EGG_IMAGE, KEY_ESC } from './constants';
 import {
   // actions
-  startCountdown, startEgg, stopEgg, eggTick, mute, unmute, konami,
+  startCountdown, startEgg, stopEgg, eggTick, konami,
 
   // util - I know, it's an odd place to put it. couldn't be bothered
   // making a whole new file just for that.
@@ -28,7 +28,7 @@ export default class EasterEgg {
       if(e.which === KEY_ESC) {
         stopEgg();
       } else {
-        konami(e.wich);
+        konami(e.which, { objectWidth: this.image.width, objectHeight: this.image.height });
       }
     });
     $(document).on('click touchend', (e) => {
