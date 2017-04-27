@@ -146,7 +146,8 @@ or so you will eventually see my trusty hound, Henry pop his head up
 from the bottom left corner of the page.
 
 ![Heny in all his glory](web/static/assets/images/henry.png)
-*Henry in all his glory*
+
+*Lo-Fi Henry in all his glory*
 
 
 I shoved this off on Redux as well. It's a very simple canvas
