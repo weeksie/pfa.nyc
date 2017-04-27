@@ -98,7 +98,5 @@ export default class ProblemMenu {
     }
 
     this.$input.val(inputValue);
-
-    return;
   }
 }
