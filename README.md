@@ -403,4 +403,5 @@ describe('Konami Code', () => {
 
 });
 ```
-:*
+
+:kissing_heart:
