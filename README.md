@@ -4,8 +4,10 @@ Why put my consulting microsite on github? Well, just so you can see
 how I code small things, I suppose. Also, it's a good way to walk
 through a few examples.
 
-The site is super basic: one web font; no big fat js frameworks; about
-10k of uncompressed css.
+The site is super basic: one web font; no big fat js frameworks; a very tiny bit of css.
+
+All up the gzipped JS is 50k and the CSS is 1.4k. Which, for a site
+like this, is how it should be.
 
 ## Landing page
 
