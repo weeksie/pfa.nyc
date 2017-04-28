@@ -261,6 +261,20 @@ Scotty is one of the most brilliant engineers I've ever met. We started Snepo to
 }
 
 
+Repo.insert! %Testimonial{
+  person: "Jose Arenado (Head of Front End)",
+  company: "Coach",
+  url: "http://www.coach.com",
+  text: """
+I consult Scotty before recommending any framework or technology to
+the teams I lead.  His ability to absorb and execute new technology
+year after year is uncanny.  I've yet to meet a fellow engineer that
+has worked with him that isn't a raving fan.
+"""
+}
+
+
+
 Repo.insert! %Page{
   url: "about",
   content: File.read! "web/static/markdown/about.md"
