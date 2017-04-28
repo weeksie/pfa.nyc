@@ -78,6 +78,10 @@ h2 {
   font-size: 2.5rem;
 }
 
+h3 {
+  font-size: 1.5rem;
+}
+
 span {
   display: inline-block;
 }
@@ -248,6 +252,17 @@ ul.projects, ul.cards {
   }
 }
 
+.static-page {
+  ul {
+    font-size: 1.25rem;
+    width: 60%;
+  }
+  li {
+    margin: 1.2rem 0;
+    font-style: italic;
+    font-weight: $f-semi-bold;
+  }
+}
 
 /** easter egg **/
 canvas {
@@ -418,6 +433,10 @@ canvas {
     font-size: 1rem;
   }
 
+  h3 {
+    font-size: 1rem;
+  }
+  
   p {
     font-size: 1rem;
   }
@@ -450,4 +469,10 @@ canvas {
     }
   }
 
+  .static-page {
+    ul {
+      font-size: 1rem;
+      width: auto;
+    }
+  }
 }

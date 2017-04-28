@@ -24,6 +24,33 @@ cycles, milestones, or whatever combination makes sense for the team.
 
 ## For instance. . . .
 
+### The early stage startup, ready to turn the MVP into a product
+
+Your idea is world shaking. The plan is perfect. The MVP does a bunch
+of what you'd like it to do. It's also held together with twine and
+was hacked into Wordpress or glued together with IFTTT scripts.
+
+Now there's some seed funding and it's time to build the foundation of
+your product. The decisions you make now will have reprecussions for
+the life of your business.
+
+This is where I come in. There are a myriad of tools to choose from to
+build modern applications. The implications can mean:
+
+* Having access to developers, even to developers that are willing to
+  work for lower rates because they like the tech.
+* Being optimized for scale, if that is truly a demand of your startup (it usually isn't).
+* Being optimized for productivity, allowing for rapid prototyping of new features.
+
+These are the choices I am good at making.
+
+The next step is building out your team, instilling the right code
+culture from the beginning. 
+
+As luck would have it, I can do a lot to help with that,
+too. [Contact me](mailto:scott.weeks@gmail.com?subject=MVP to Product)
+
+
 ### The agency team that needs to get across a new programming language or technology
 
 The principal of a small agency approaches me because her developers
