@@ -19,7 +19,7 @@ forums, and now it exists as a small Slack channel. There's probably a
 metaphor in there about the evolution of the web, but I'm not going to
 dig too deep.
 
-### 2003-2009
+### 2003-2008
 **SYDNEY, AUSTRALIA** In '03/04 the Ruby users group was also the
 Smalltalk users group on account of there not being enough of either
 camp to hold a proper meetup. Ruby was not a popular language back

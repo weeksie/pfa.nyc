@@ -86,6 +86,7 @@ export function konami(key, { objectWidth, objectHeight }) {
         nextKonami = (konami || "") + key.toString();
 
   if(nextKonami === KONAMI) {
+    stopEgg();
     startEgg({
       pixelsPerTick: randSpeed(),
       boundX: window.innerWidth,
