@@ -37,9 +37,9 @@ Haskell *in 2006*. And, of course, lots of Rails.
 **NEW YORK** I sold my third of Snepo and moved back to the US where I
 consulted for Gucci, Indaba Music, Gin Lane, WebMD, and a ton of
 others. Was VP Engineering for a startup
-called [Plyfe](http://plyfe.com). Built an MVP dating app that got up
-to about 3k MAUs before I shelved it for other reasons. Lots of good
-times.
+called [Plyfe](http://plyfe.com). Built an MVP dating app called Hey
+Foxy that got up to about 3k MAUs before I shelved it for other
+reasons. Lots of good times.
 
 So now it's 2017.
 
