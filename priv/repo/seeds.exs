@@ -164,7 +164,7 @@ Rails, rails, rails.
 
 Ruby was my first love. Imagine a time when Rails didn't exist. Go further. Imagine when there were so few people using Ruby that we had to team up with the Smalltalk fans in order to have a meetup group big enough to reserve a table at a bar. Back then, rubyists who wanted to build web applications frequently rolled their own application servers from scratch. Oh what innocent, bygone days.
 
-Needless to say, when the Rails announcement hit, I was a very happy person. I had no idea how big the effect would be. However, I've been using Rails in production since about three weeks after it was announced. To this day, if you want a great out of the box web experience it's impossible to beat. Ruby is still the beautiful language I fell for fifteen years ago and it delights me every day.
+Needless to say, when the Rails announcement hit, I was a very happy person. I had no idea how big the effect would be. However, I've been using Rails in production since about three weeks after it was announced. To this day, if you want a great out of the box web experience it's impossible to beat. Ruby is still the beautiful language I fell for almost thirteen years ago and it delights me every day.
 
 If you have a Rails project, [get in touch](mailto:scott.weeks@gmail.com?subject=Rails). It's my hometown.
 """
