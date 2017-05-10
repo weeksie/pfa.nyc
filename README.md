@@ -1,3 +1,9 @@
+_While this should go without saying, my putting this on github does
+not mean you are allowed to wholesale copy the content on my
+website. Hey, have a blast digging around in my code but copying my
+content is a little crap. Thanks!_
+
+
 # Hi! This is a super basic brochure for pfa.nyc
 
 Why put my consulting microsite on github? Well, just so you can see
