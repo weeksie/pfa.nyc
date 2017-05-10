@@ -3,6 +3,8 @@ not mean you are allowed to wholesale copy the content on my
 website. Hey, have a blast digging around in my code but copying my
 content is a little crap. Thanks!_
 
+All content (c) PFA INC 2017
+
 
 # Hi! This is a super basic brochure for pfa.nyc
 
